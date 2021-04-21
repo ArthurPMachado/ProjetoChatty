@@ -2,6 +2,8 @@ import {
   Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn,
 } from 'typeorm';
 
+import { v4 as uuidV4 } from 'uuid';
+
 @Entity('settings')
 class Settings {
   @PrimaryColumn()
@@ -18,6 +20,12 @@ class Settings {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  constructor() {
+    if (!this.id) {
+      this.id = uuidV4();
+    }
+  }
 }
 
 export default Settings;
