@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 /* eslint-disable @typescript-eslint/no-var-requires */
 import express from 'express';
 import { createServer } from 'http';
@@ -15,6 +14,8 @@ server.set('views', path.join(__dirname, '..', 'public'));
 server.engine('html', require('ejs').renderFile);
 
 server.set('view engine', 'html');
+
+server.get('/pages/client', (request, response) => response.render('html/client.html'));
 
 const http = createServer(server); // Criando protocolo http
 const io = new Server(http); // Criando protocolo websocket
