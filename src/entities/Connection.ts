@@ -4,7 +4,7 @@ import {
 import { v4 as uuidV4 } from 'uuid';
 import User from './User';
 
-@Entity()
+@Entity('connections')
 class Connection {
   @PrimaryColumn()
   id: string;
