@@ -16,6 +16,7 @@ server.engine('html', require('ejs').renderFile);
 server.set('view engine', 'html');
 
 server.get('/pages/client', (request, response) => response.render('html/client.html'));
+server.get('/pages/admin', (request, response) => response.render('html/admin.html'));
 
 const http = createServer(server); // Criando protocolo http
 const io = new Server(http); // Criando protocolo websocket
