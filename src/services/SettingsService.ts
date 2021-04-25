@@ -37,7 +37,7 @@ class SettingsService {
     return settings;
   }
 
-  async update(username: string, chat: boolean) {
+  async update(username: string, chat: boolean): Promise<void> {
     await this.settingsRepository.createQueryBuilder()
       .update(Settings)
       .set({ chat })
